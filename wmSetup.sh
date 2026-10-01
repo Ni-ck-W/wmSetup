@@ -24,9 +24,9 @@ mv ~/.config/ben_10_red.jpg ~/Pictures/ 2>/dev/null || true
 rm -f ~/.config/README.md
 rm -rf wmSetup-main
 
-#app installs
+#base system app installs
 sudo pacman -Syu --noconfirm \
-    qt6ct swaybg swaync hyprland breeze breeze-gtk conky clapper imv flameshot localsend polkit-gnome waybar rofi network-manager-applet blueman brightnessctl otf-font-awesome
+    sway qt6ct swaybg swaync hyprland breeze breeze-gtk conky clapper imv flameshot localsend polkit-gnome waybar rofi network-manager-applet blueman brightnessctl otf-font-awesome ttf-font-nerd
 
 #custom app files
 mkdir -p ~/.local/share/applications
