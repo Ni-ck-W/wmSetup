@@ -3,7 +3,8 @@
 set -e
 # Download github
 wget -O main.zip https://github.com/Ni-ck-W/wmSetup/archive/refs/heads/main.zip
-
+sudo pacman -Syu --noconfirm \
+    unzip
 unzip main.zip
 rm main.zip
 
@@ -26,7 +27,7 @@ rm -rf wmSetup-main
 
 #base system app installs
 sudo pacman -Syu --noconfirm \
-    sway qt6ct swaybg swaync hyprland breeze breeze-gtk conky clapper imv flameshot localsend polkit-gnome waybar rofi network-manager-applet blueman brightnessctl otf-font-awesome ttf-font-nerd
+    sway qt6ct swaybg swaync hyprland breeze breeze-gtk conky clapper imv flameshot localsend polkit-gnome waybar rofi network-manager-applet blueman brightnessctl otf-font-awesome ttf-font-nerd dolphin ly foot ufw
 
 #custom app files
 mkdir -p ~/.local/share/applications
@@ -37,6 +38,10 @@ update-desktop-database ~/.local/share/applications || true
 #localsend firewall
 sudo ufw allow 53317/tcp
 sudo ufw allow 53317/udp
+
+#Ly setup
+sudo systemctl disable getty@tty1.service
+sudo systemctl enable ly@tty1.service
 
 #change shell
 chsh -s /bin/bash
